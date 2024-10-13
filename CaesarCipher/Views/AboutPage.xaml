@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CaesarCipher.Views.AboutPage"
+             Title="AboutPage">
+    <ScrollView>
+        <VerticalStackLayout Spacing="20"
+                             Padding="20">
+            <HorizontalStackLayout Spacing="10"
+                                   HorizontalOptions="Center">
+                <Image Source="developer.png"
+                       SemanticProperties.Description="Developer Photo"
+                       HeightRequest="100"
+                       WidthRequest="100"
+                       Aspect="AspectFill">
+                    <Image.Clip>
+                        <EllipseGeometry Center="50,50"
+                                         RadiusX="50"
+                                         RadiusY="50" />
+                    </Image.Clip>
+                </Image>
+                <Label FontSize="22"
+                       FontAttributes="Bold"
+                       Text="About the Developer"
+                       VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <Label Text="Розробник: Божевський Іван, група ТТП-42"
+                   FontSize="18"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

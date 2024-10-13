@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CaesarCipher.ViewModel"
+             x:Class="CaesarCipher.Views.CaesarPage"
+             x:DataType="vm:CaesarPageVM">
+
+    <ScrollView Grid.Row="0">
+        <VerticalStackLayout Padding="30,0"
+                             Spacing="25">
+
+            <Label Text="Введіть текст" />
+            <Entry Text="{Binding InputText}"
+                   Placeholder="Введіть текст, який потрібно зашифрувати/дешифрувати" />
+
+            <Label Text="Зсув" />
+            <Slider Minimum="0"
+                    Maximum="33"
+                    ValueChanged="Slider_ValueChanged"
+                    Value="{Binding Shift}" />
+            <Label Text="{Binding Shift, StringFormat='Shift: {0}'}"
+                   HorizontalOptions="Center" />
+
+            <Button Text="Зашифрувати"
+                    Command="{Binding EncryptCommand}" />
+            <Button Text="Дешифрувати"
+                    Command="{Binding DecryptCommand}" />
+
+            <Button Text="Завантажити файл"
+                    Command="{Binding LoadFromFileCommand}" />
+
+            <Button Text="Зберегти в файл"
+                    Command="{Binding SaveToFileCommand}" />
+
+            <Label Text="Результат" />
+            <Label Text="{Binding Result}" />
+
+            <GraphicsView x:Name="CaesarCipherCanvas"
+                          HeightRequest="{Binding CanvasHeight}"
+                          Drawable="{Binding CaesarCipherDrawable}"
+                          VerticalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

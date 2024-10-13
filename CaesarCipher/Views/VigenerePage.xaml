@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CaesarCipher.Views.VigenerePage"
+             xmlns:vm="clr-namespace:CaesarCipher.ViewModel"
+             x:DataType="vm:VigenerePageVM"
+             Title="VigenerePage">
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0"
+                             Spacing="25">
+
+            <Label Text="Введіть текст" />
+            <Entry Text="{Binding InputText}"
+                   Placeholder="Введіть текст, який потрібно зашифрувати/дешифрувати" />
+
+            <Label Text="Ключ" />
+            <Entry Text="{Binding Key}"
+                    TextChanged="Entry_TextChanged"
+                   Placeholder="Введіть значення ключа" />
+
+            <Button Text="Зашифрувати"
+                    Command="{Binding EncryptCommand}" />
+            <Button Text="Дешифрувати"
+                    Command="{Binding DecryptCommand}" />
+
+            <Button Text="Завантажити файл"
+                    Command="{Binding LoadFromFileCommand}" />
+
+            <Button Text="Зберегти в файл"
+                    Command="{Binding SaveToFileCommand}" />
+
+            <Label Text="Результат" />
+            <Label Text="{Binding Result}" />
+
+            <GraphicsView x:Name="VigenereCipherCanvas"
+                          HeightRequest="{Binding CanvasHeight}"
+                          Drawable="{Binding VigenereCipherDrawable}"
+                          VerticalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
